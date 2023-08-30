@@ -13,9 +13,9 @@
 ////////////////////////////////////////////////////////
 
 #import <UIKit/UIKit.h>
-#import <AFServiceSDK/AFServiceSDK.h>
 #import "APayAuthInfo.h"
-
+#import "AFServiceCenter.h"
+#import "AFServiceResponse.h"
 
 typedef void(^CompletionBlock)(NSDictionary *resultDic);
 
