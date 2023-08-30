@@ -9,13 +9,11 @@
 
 ////////////////////////////////////////////////////////
 ///////////////// 支付宝标准版本支付SDK ///////////////////
-///////// version:15.8.16  modify:2023.08.02///////////
+/////////// version:15.6.8  motify:2019.09.19///////////
 ////////////////////////////////////////////////////////
 
 #import <UIKit/UIKit.h>
 #import "APayAuthInfo.h"
-#import "AFServiceCenter.h"
-#import "AFServiceResponse.h"
 
 typedef void(^CompletionBlock)(NSDictionary *resultDic);
 
@@ -52,9 +50,10 @@ typedef enum {
 /**
  *  支付接口
  *
- *  @param orderStr                支付订单信息字串
- *  @param schemeStr              调用支付的app注册在info.plist中的scheme
- *  @param completionBlock 支付结果回调Block，用于wap支付结果回调,跳转支付宝支付时只有当processOrderWithPaymentResult接口的completionBlock为nil时会使用这个bolock
+ *  @param orderStr        支付订单信息字串
+ *  @param schemeStr       调用支付的app注册在info.plist中的scheme
+ *  @param completionBlock 支付结果回调Block，用于wap支付结果回调
+                           跳转支付宝支付时只有当processOrderWithPaymentResult接口的completionBlock为nil时会使用这个bolock
  */
 - (void)payOrder:(NSString *)orderStr
       fromScheme:(NSString *)schemeStr
@@ -82,30 +81,6 @@ typedef enum {
  */
 - (void)processOrderWithPaymentResult:(NSURL *)resultUrl
                       standbyCallback:(CompletionBlock)completionBlock;
-
-
-/**
- *  商户接入UniversalLink支付接口使用该接口
- *
- *  @param orderStr                  支付订单信息字串
- *  @param schemeStr                调用支付的app注册在info.plist中的scheme
- *  @param universalLink       调用支付的app关联的universalLink,如'https://render.alipay.com/'
- *  @param completionBlock   支付结果回调Block，用于wap支付结果回调,跳转支付宝支付时只有当processOrderWithPaymentResult接口的completionBlock为nil时会使用这个bolock
- */
-- (void) payOrder:(NSString *)orderStr
-       fromScheme:(NSString *)schemeStr
-fromUniversalLink:(NSString *)universalLink
-         callback:(CompletionBlock)completionBlock;
-
-
-/**
- *  处理支付宝app支付后通过universalLink跳回商户app携带的支付结果处理
- *
- *  @param userActivity            系统接口传入的userActivity
- *  @param completionBlock     支付结果回调 为nil时默认使用支付接口的completionBlock
- */
-- (void)handleOpenUniversalLink:(NSUserActivity *)userActivity standbyCallback:(CompletionBlock)completionBlock;
-
 
 /**
  *  获取交易token。
@@ -225,22 +200,4 @@ fromUniversalLink:(NSString *)universalLink
  *  @param block 更新请求结果回调
  */
 - (void)fetchSdkConfigWithBlock:(void(^)(BOOL success))block;
-
-
-typedef void(^APLogBlock)(NSString *log);
-
-/**
-*   接收AlipaySDK的log信息
-*
-*  @param logBlock 打印log的回调block
-*/
-+ (void)startLogWithBlock:(APLogBlock)logBlock;
-
-/**
-*   停止输出log,会释放logBlock
-*
-*
-*/
-+ (void)stopLog;
-
 @end

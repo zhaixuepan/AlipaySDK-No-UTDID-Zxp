@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "AlipaySDK-No-UTDID-Zxp"
-  s.version      = "15.8.16"
+  s.version      = "15.6.8"
   s.summary      = "Alipay SDK 适用于集成了百川sdk，出现UTDID冲突. (Last updated @ 2023-08-30)"
 
   # This description is used to generate tags and improve search results.
