@@ -16,8 +16,8 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "AlipaySDK-No-UTDID-Zxp"
-  s.version      = "15.6.8"
-  s.summary      = "Alipay SDK 适用于集成了百川sdk，出现UTDID冲突. (Last updated @ 2023-08-30)"
+  s.version      = "15.8.32"
+  s.summary      = "Alipay SDK 适用于集成了百川sdk，出现UTDID冲突. (Last updated @ 2025-03-14)"
 
   # This description is used to generate tags and improve search results.
   #   * Think: What does it do? Why did you write it? What is the focus?
@@ -67,7 +67,7 @@ Pod::Spec.new do |s|
   # s.platform     = :ios, "7.0"
 
   #  When using multiple platforms
-  s.ios.deployment_target = "7.0"
+  s.ios.deployment_target = "12.0"
   # s.osx.deployment_target = "10.7"
   # s.watchos.deployment_target = "2.0"
   # s.tvos.deployment_target = "9.0"
